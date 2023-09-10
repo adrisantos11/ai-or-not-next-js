@@ -4,7 +4,7 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
-const name = "Adrián Santos Mena";
+const name = "Is AI or not";
 export const siteTitle = "Next.js Sample Website";
 
 interface Layout {

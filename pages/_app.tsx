@@ -1,5 +1,10 @@
 import "../styles/global.css";
 
-export default function App({ Component, pageProps }) {
+interface IApp {
+	Component: any;
+	pageProps: any;
+}
+
+export default function App({ Component, pageProps }: IApp) {
 	return <Component {...pageProps} />;
 }
