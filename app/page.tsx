@@ -2,20 +2,16 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Button from "@mui/material/Button";
-import bckgImg from "@/public/sciencefiction10.jpeg";
+import bckgImg from "../public/bckg_img-darken.png";
 
 export default function Home() {
 	return (
 		<main
 			className={styles.main}
-			style={{ backgroundImage: `url(${bckgImg.src})` }}
+			style={{
+				backgroundImage: `url(${bckgImg.src})`,
+			}}
 		>
-			<Image
-				className={styles["background-image"]}
-				src="/public/sciencefiction10.jpeg"
-				alt="Background Image"
-				fill={true}
-			></Image>
 			<h1 className={styles.title}>Is this AI or not</h1>
 			<div className={styles.subtitle}>
 				<h3>Show your capacity of AI detecting</h3>
