@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import bckgImg from "../public/bckg_img-darken.png";
+import { TextField, colors } from "@mui/material";
 
 export default function Home() {
 	return (
@@ -21,17 +22,77 @@ export default function Home() {
 					addictive game
 				</h3>
 			</div>
-			<div>Text input</div>
+			<TextField
+				id="playerName"
+				label="Player name"
+				variant="standard"
+				sx={{ fontFamily: "inherit", width: "30rem" }}
+				InputLabelProps={{
+					sx: {
+						color: "#8B8B8B",
+						fontFamily: "inherit",
+						fontSize: "1.25rem",
+						lineHeight: "1.5rem",
+					},
+				}}
+				InputProps={{
+					sx: {
+						color: "white",
+						textAlign: "center",
+						":before": {
+							borderBottom: "2px solid white",
+						},
+						"::placeholder": {
+							color: "white",
+						},
+						fontFamily: "inherit",
+						padding: ".125rem 0",
+					},
+				}}
+			/>
 			<div className={styles["buttons-container"]}>
 				<div className={styles["game-buttons"]}>
-					<Button variant="contained">
+					<Button
+						variant="contained"
+						sx={{
+							borderRadius: "1.5rem",
+							textTransform: "none",
+							fontFamily: "inherit",
+							fontSize: "1rem",
+							padding: ".5rem 2rem",
+							backgroundColor: "#4477CE",
+						}}
+					>
 						<Link href="/game">Start game</Link>
 					</Button>
-					<Button variant="contained">
+					<Button
+						variant="contained"
+						sx={{
+							borderRadius: "1.5rem",
+							textTransform: "none",
+							fontFamily: "inherit",
+							fontSize: "1rem",
+							padding: ".5rem 2rem",
+							backgroundColor: "#512B81",
+						}}
+					>
 						<Link href="/dashboard">Dashboard</Link>
 					</Button>
 				</div>
-				<Button variant="outlined">Get our images</Button>
+				<Button
+					variant="outlined"
+					disabled
+					sx={{
+						borderRadius: "1.5rem",
+						textTransform: "none",
+						fontFamily: "inherit",
+						padding: ".5rem 2rem",
+						borderColor: "#512B81",
+						color: "#512B81",
+					}}
+				>
+					Get our images
+				</Button>
 			</div>
 		</main>
 	);
