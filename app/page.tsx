@@ -65,6 +65,7 @@ export default function Home() {
 					</Button>
 					<Button
 						variant="contained"
+						// className={styles["dashboard-button"]}
 						sx={{
 							borderRadius: "1.5rem",
 							textTransform: "none",
@@ -72,6 +73,9 @@ export default function Home() {
 							fontSize: "1rem",
 							padding: ".5rem 2rem",
 							backgroundColor: "#512B81",
+							":hover": {
+								backgroundColor: "#37185f",
+							},
 						}}
 					>
 						<Link href="/dashboard">Dashboard</Link>
