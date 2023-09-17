@@ -39,9 +39,7 @@ export default function Home() {
 					sx: {
 						color: "white",
 						textAlign: "center",
-						":before": {
-							borderBottom: "2px solid white",
-						},
+						borderBottom: "2px solid white",
 						"::placeholder": {
 							color: "white",
 						},
