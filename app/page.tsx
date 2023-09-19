@@ -1,9 +1,8 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import bckgImg from "../public/bckg_img-darken.png";
-import { TextField, colors } from "@mui/material";
+import { TextField } from "@mui/material";
 
 export default function Home() {
 	return (
