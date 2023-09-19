@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 import Button from "@mui/material/Button";
-import bckgImg from "../public/bckg_img-darken.png";
+import bckgImg from "@/public/landscape20.jpeg";
 import { TextField } from "@mui/material";
 
 export default function Home() {
