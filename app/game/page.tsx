@@ -13,7 +13,7 @@ import Link from "next/link";
 const GamePage = () => {
 	const [selected, setSelected] = React.useState<number>(0);
 
-	fetch("/api/test")
+	fetch(`${process.env.NEXT_PUBLIC_API}/api/test`)
 		.then((data) => {
 			console.log(data);
 			return data.json();
