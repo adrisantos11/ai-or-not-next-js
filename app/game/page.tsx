@@ -12,6 +12,14 @@ import Link from "next/link";
 
 const GamePage = () => {
 	const [selected, setSelected] = React.useState<number>(0);
+
+	fetch("/api/test")
+		.then((data) => {
+			console.log(data);
+			return data.json();
+		})
+		.then((data) => console.log(data));
+
 	return (
 		<div className="p-game-page">
 			<Link href="/">
