@@ -123,6 +123,70 @@ $laptops-size: 1024px;
 		width: 225px;
 		height: 225px;
 	}
+
+	.p-next-round {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 3rem;
+		z-index: 999;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba($color: #000000, $alpha: 0.6);
+		color: white;
+
+		&__score-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		&__title {
+			font-size: 2rem;
+		}
+
+		&__score {
+			font-size: 2.5rem;
+		}
+
+		&__historical-score-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.25rem;
+		}
+
+		&__historical-score {
+		}
+
+		&__button-container {
+			display: flex;
+			flex-direction: row;
+			gap: 5rem;
+		}
+
+		&__button {
+			border-radius: 1.5rem;
+			text-transform: none;
+			font-family: inherit;
+			font-size: 1rem;
+			padding: 0.5rem 2rem;
+
+			&--next {
+				background-color: #4477ce;
+			}
+			&--exit {
+				border: 2px solid #d74d4d;
+				color: #d74d4d;
+				&:hover {
+					border-color: darken($color: #d74d4d, $amount: 0.3);
+				}
+			}
+		}
+	}
 }
 
 @media (max-width: $tablets-size) {

@@ -10,7 +10,7 @@ $laptops-size: 1024px;
 	align-items: center;
 	justify-content: center;
 	gap: 4rem;
-	padding: 12rem;
+	padding: 16rem;
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
@@ -40,7 +40,8 @@ $laptops-size: 1024px;
 		text-align: center;
 		border-bottom: 2px solid white;
 		padding: 0.125rem 0;
-		width: 100%;
+		width: 80%;
+		max-width: 80%;
 		font-family: inherit;
 
 		&::placeholder {
