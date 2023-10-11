@@ -193,6 +193,16 @@ $laptops-size: 1024px;
 	.p-game {
 		flex-direction: column;
 
+		&__image-title {
+			font-size: 1rem;
+			line-height: 1.25rem;
+		}
+
+		&__image-description {
+			font-size: 0.75rem;
+			line-height: 1rem;
+		}
+
 		&__image {
 			width: 100%;
 			height: 50%;
@@ -200,7 +210,7 @@ $laptops-size: 1024px;
 
 		&__select-img-txt {
 			font-size: 2rem;
-			line-height: 2 0.25rem;
+			line-height: 2.25rem;
 			font-weight: 500;
 		}
 

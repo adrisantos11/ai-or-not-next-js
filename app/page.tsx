@@ -47,7 +47,7 @@ export default function Home() {
 						</Button>
 					</Link>
 				</div>
-				<Button
+				{/* <Button
 					variant="outlined"
 					disabled
 					sx={{
@@ -60,7 +60,7 @@ export default function Home() {
 					}}
 				>
 					Get our images
-				</Button>
+				</Button> */}
 			</div>
 		</main>
 	);

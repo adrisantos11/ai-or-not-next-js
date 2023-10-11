@@ -95,7 +95,7 @@ $laptops-size: 1024px;
 
 @media (max-width: $tablets-size) {
 	.p-home {
-		padding: 3rem;
+		padding: 2rem;
 		&__title {
 			font-size: 2.75rem;
 			line-height: 3rem;
@@ -108,6 +108,7 @@ $laptops-size: 1024px;
 			}
 		}
 		&__button {
+			width: 100%;
 			font-size: 0.85rem;
 		}
 		&__user-input {
@@ -126,31 +127,10 @@ $laptops-size: 1024px;
 				color: white;
 			}
 		}
-	}
-}
-
-@media (max-width: $tablets-size) {
-	.p-home {
-		padding: 2 rem;
-		&__title {
-			font-size: 2.75rem;
-			line-height: 3rem;
-		}
-
-		&__subtitle {
-			h3 {
-				font-size: 0.85rem;
-				line-height: 1rem;
-			}
-		}
 		&__game-buttons {
 			display: flex;
 			flex-direction: column;
 			gap: 2rem;
-		}
-
-		&__button {
-			width: 100%;
 		}
 	}
 }
