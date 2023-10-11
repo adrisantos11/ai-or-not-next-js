@@ -48,7 +48,7 @@ const GamePage = () => {
 	const [score, setScore] = React.useState<number>(0);
 	const [keepPlaying, setKeepPlaying] = React.useState<boolean>(true);
 
-	const getImage = (side: "left" | "right", typeObject: any) => {
+	const getImage = (side: string, typeObject: any) => {
 		const image = document.getElementById(`${side}-game-image`);
 		if (image) {
 			image.style.backgroundImage = `url(${`${
@@ -58,7 +58,11 @@ const GamePage = () => {
 				typeObject.amount + 1
 			)}`})`;
 			image.onclick = () => {
-				setSelected(() => StatesEnum[`${side}-selection`]);
+				setSelected(() =>
+					side === "left"
+						? StatesEnum[`left-selection`]
+						: StatesEnum[`right-selection`]
+				);
 				if (typeObject.type === "ai") {
 					setScore((score) => score + 1);
 				} else {
