@@ -23,11 +23,6 @@ const generateRandom = (min = 0, max = 100) => {
 	return Math.floor(rand * difference) + min;
 };
 
-const getRandomInList = (list: any[]) => {
-	const randomNumber = generateRandom(0, list.length);
-	return { position: randomNumber, value: list[randomNumber] };
-};
-
 enum StatesEnum {
 	"initial" = 0,
 	"left-selection" = 1,
@@ -41,33 +36,48 @@ const GamePage = () => {
 	);
 
 	const [imageTypeList, setImageTypeList] = React.useState<any[]>([
-		{ type: "ai", amount: 137, url: "api/image-1" },
-		{ type: "real", amount: 20, url: "api/image-2" },
+		{
+			type: "ai",
+			url: "api/image-1",
+			url_amount: 137,
+			path: "/images/ai",
+			path_amout: 100,
+			path_extension: "jpeg",
+		},
+		{
+			type: "real",
+			url: "api/image-2",
+			url_amount: 20,
+			path: "/images/real",
+			path_amout: 100,
+			path_extension: "jpg",
+		},
 	]);
 
 	const [score, setScore] = React.useState<number>(0);
 	const [keepPlaying, setKeepPlaying] = React.useState<boolean>(true);
 
-	const getImage = (side: string, typeObject: any) => {
+	const getImage = (side: string, typeObject: any, cloud: boolean) => {
 		const image = document.getElementById(`${side}-game-image`);
+		const url: string = cloud
+			? `${process.env.NEXT_PUBLIC_API}/${
+					typeObject.url
+			  }?image-id=${generateRandom(0, typeObject.url_amount + 1)}`
+			: ` ${typeObject.path}/${generateRandom(
+					0,
+					typeObject.url_amount + 1
+			  )}.${typeObject.path_extension}`;
 		if (image) {
-			image.style.backgroundImage = `url(${`${
-				process.env.NEXT_PUBLIC_API
-			}/${typeObject.url}?image-id=${generateRandom(
-				0,
-				typeObject.amount + 1
-			)}`})`;
+			image.style.backgroundImage = `url('${url}')`;
+			// image.style.backgroundImage = `url('/images/ai/1.jpeg')`;
 			image.onclick = () => {
 				setSelected(() =>
 					side === "left"
 						? StatesEnum[`left-selection`]
 						: StatesEnum[`right-selection`]
 				);
-				if (typeObject.type === "ai") {
-					setScore((score) => score + 1);
-				} else {
-					setKeepPlaying(false);
-				}
+				if (typeObject.type === "ai") setScore((score) => score + 1);
+				else setKeepPlaying(false);
 			};
 		}
 	};
@@ -95,7 +105,7 @@ const GamePage = () => {
 
 	React.useEffect(() => {
 		imageTypeList.map((obj: any, index: number) =>
-			getImage(SIDES[index], obj)
+			getImage(SIDES[index], obj, false)
 		);
 	}, [imageTypeList]);
 
