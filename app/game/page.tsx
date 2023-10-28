@@ -56,8 +56,8 @@ const GamePage = () => {
 
 	const [score, setScore] = React.useState<number>(0);
 	const [keepPlaying, setKeepPlaying] = React.useState<boolean>(true);
-	const [personalRecord, setPersonalRecord] = React.useState<number>(null);
-	const [globalRecord, setGlobalRecord] = React.useState<number>(null);
+	const [personalRecord, setPersonalRecord] = React.useState<number>(0);
+	const [globalRecord, setGlobalRecord] = React.useState<number>(0);
 
 	const getImage = (side: string, typeObject: any, cloud: boolean) => {
 		const image = document.getElementById(`${side}-game-image`);
