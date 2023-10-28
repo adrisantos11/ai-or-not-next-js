@@ -1,3 +1,6 @@
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import bckgImg from "@/public/landscape20.jpeg";
@@ -5,6 +8,11 @@ import { TextField } from "@mui/material";
 import "./page.scss";
 
 export default function Home() {
+	const [userName, setUserName] = React.useState<string>("");
+
+	React.useEffect(() => {
+		localStorage.setItem("currentUser", "");
+	}, []);
 	return (
 		<main
 			className="p-home"
@@ -26,6 +34,9 @@ export default function Home() {
 				label="Player name"
 				variant="standard"
 				className="p-home__user-input"
+				onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+					setUserName(event.target.value);
+				}}
 			/>
 			<div className="p-home__buttons-container">
 				<div className="p-home__game-buttons">
@@ -33,6 +44,27 @@ export default function Home() {
 						<Button
 							className="p-home__button p-home__button--game"
 							variant="contained"
+							onClick={() => {
+								const usersObj: any =
+									JSON.parse(
+										String(
+											localStorage.getItem("userRecords")
+										)
+									) || {};
+								const usersObjKeys = Object.keys(usersObj);
+								if (
+									!usersObjKeys.find(
+										(key: string) => key === userName
+									)
+								) {
+									usersObj[userName] = 0;
+									localStorage.setItem(
+										"userRecords",
+										JSON.stringify(usersObj)
+									);
+								}
+								localStorage.setItem("currentUser", userName);
+							}}
 						>
 							Start game
 						</Button>

@@ -56,6 +56,8 @@ const GamePage = () => {
 
 	const [score, setScore] = React.useState<number>(0);
 	const [keepPlaying, setKeepPlaying] = React.useState<boolean>(true);
+	const [personalRecord, setPersonalRecord] = React.useState<number>(null);
+	const [globalRecord, setGlobalRecord] = React.useState<number>(null);
 
 	const getImage = (side: string, typeObject: any, cloud: boolean) => {
 		const image = document.getElementById(`${side}-game-image`);
@@ -69,13 +71,13 @@ const GamePage = () => {
 			  )}.${typeObject.path_extension}`;
 		if (image) {
 			image.style.backgroundImage = `url('${url}')`;
-			// image.style.backgroundImage = `url('/images/ai/1.jpeg')`;
 			image.onclick = () => {
 				setSelected(() =>
 					side === "left"
 						? StatesEnum[`left-selection`]
 						: StatesEnum[`right-selection`]
 				);
+
 				if (typeObject.type === "ai") setScore((score) => score + 1);
 				else setKeepPlaying(false);
 			};
@@ -90,6 +92,16 @@ const GamePage = () => {
 
 	React.useEffect(() => {
 		getNewImages();
+		const usersObj: any = JSON.parse(
+			String(localStorage.getItem("userRecords"))
+		);
+		const currentUser: string = String(localStorage.getItem("currentUser"));
+		setPersonalRecord(Number(usersObj[currentUser]));
+		setGlobalRecord(() =>
+			Math.max(
+				...Object.values(usersObj).map((value: any) => Number(value))
+			)
+		);
 	}, []);
 
 	React.useEffect(() => {
@@ -99,7 +111,7 @@ const GamePage = () => {
 		) {
 			setTimeout(() => {
 				setSelected(() => StatesEnum["score-page"]);
-			}, 1000);
+			}, 750);
 		}
 	}, [selected]);
 
@@ -108,6 +120,11 @@ const GamePage = () => {
 			getImage(SIDES[index], obj, false)
 		);
 	}, [imageTypeList]);
+
+	React.useEffect(() => {
+		if (score > personalRecord) setPersonalRecord(score);
+		if (score > globalRecord) setGlobalRecord(score);
+	}, [score]);
 
 	return (
 		<div className="p-game">
@@ -124,16 +141,19 @@ const GamePage = () => {
 				<div className="p-next-round">
 					<div className="p-next-round__score-container">
 						<span className="p-next-round__title">SCORE</span>
+						<span className="p-next-round__subtitle">
+							User: {localStorage.getItem("currentUser")}
+						</span>
 						<span className="p-next-round__score">
 							<b>{score}</b>
 						</span>
 					</div>
 					<div className="p-next-round__historical-score-container">
 						<span>
-							<b>2</b> points for personal record
+							<b>{personalRecord}</b> points for personal record
 						</span>
 						<span>
-							<b>8</b> points for global record
+							<b>{globalRecord}</b> points for global record
 						</span>
 					</div>
 					<div className="p-next-round__button-container">
@@ -153,6 +173,23 @@ const GamePage = () => {
 							<Button
 								className="p-next-round__button p-next-round__button--exit"
 								variant="outlined"
+								onClick={() => {
+									const usersObj: any = JSON.parse(
+										String(
+											localStorage.getItem("userRecords")
+										)
+									);
+									const currentUser: any =
+										localStorage.getItem("currentUser");
+									if (usersObj[currentUser] < score) {
+										usersObj[currentUser] = score;
+										localStorage.setItem(
+											"userRecords",
+											JSON.stringify(usersObj)
+										);
+									}
+									localStorage.setItem("currentUser", "");
+								}}
 							>
 								Exit
 							</Button>
@@ -180,7 +217,10 @@ const GamePage = () => {
 										Select image
 									</span>
 								</div>
-								<div className="p-game__img-data">
+								<div
+									className="p-game__img-data"
+									style={{ display: "none" }}
+								>
 									<span className="p-game__image-title">
 										Image_name
 									</span>
