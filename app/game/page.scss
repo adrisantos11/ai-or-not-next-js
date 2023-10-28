@@ -18,7 +18,7 @@ $laptops-size: 1024px;
 		background-position: center;
 
 		&:hover {
-			&.p-game-page__image--left .p-game-page__select-img {
+			&.p-game__image--left .p-game__select-img {
 				display: flex;
 				background-color: black;
 				color: white;
@@ -29,7 +29,7 @@ $laptops-size: 1024px;
 				z-index: 9;
 			}
 
-			&.p-game-page__image--right .p-game-page__select-img {
+			&.p-game__image--right .p-game__select-img {
 				display: flex;
 				background-color: black;
 				color: white;
