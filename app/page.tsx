@@ -2,9 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Button from "@mui/material/Button";
 import bckgImg from "@/public/landscape20.jpeg";
-import { TextField } from "@mui/material";
 import "./page.scss";
 
 export default function Home() {
@@ -29,11 +27,10 @@ export default function Home() {
 					addictive game
 				</h3>
 			</div>
-			<TextField
+			<input
 				id="playerName"
-				label="Player name"
-				variant="standard"
 				className="p-home__user-input"
+				placeholder="Username"
 				onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
 					setUserName(event.target.value);
 				}}
@@ -41,9 +38,8 @@ export default function Home() {
 			<div className="p-home__buttons-container">
 				<div className="p-home__game-buttons">
 					<Link href="/game">
-						<Button
+						<button
 							className="p-home__button p-home__button--game"
-							variant="contained"
 							onClick={() => {
 								const usersObj: any =
 									JSON.parse(
@@ -67,32 +63,15 @@ export default function Home() {
 							}}
 						>
 							Start game
-						</Button>
+						</button>
 					</Link>
 
 					<Link href="/dashboard">
-						<Button
-							variant="contained"
-							className="p-home__button p-home__button--dashboard"
-						>
+						<button className="p-home__button p-home__button--dashboard">
 							Dashboard
-						</Button>
+						</button>
 					</Link>
 				</div>
-				{/* <Button
-					variant="outlined"
-					disabled
-					sx={{
-						borderRadius: "1.5rem",
-						textTransform: "none",
-						fontFamily: "inherit",
-						padding: ".5rem 2rem",
-						borderColor: "#512B81",
-						color: "#512B81",
-					}}
-				>
-					Get our images
-				</Button> */}
 			</div>
 		</main>
 	);

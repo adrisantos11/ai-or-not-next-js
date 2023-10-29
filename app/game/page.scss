@@ -164,9 +164,6 @@ $laptops-size: 1024px;
 			gap: 0.25rem;
 		}
 
-		&__historical-score {
-		}
-
 		&__button-container {
 			display: flex;
 			flex-direction: row;
@@ -180,12 +177,21 @@ $laptops-size: 1024px;
 			font-size: 1rem;
 			padding: 0.5rem 2rem;
 
+			&:hover {
+				cursor: pointer;
+			}
+
 			&--next {
+				color: white;
 				background-color: #4477ce;
+				&:hover {
+					background-color: darken(#4477ce, 5%);
+				}
 			}
 			&--exit {
 				border: 2px solid #d74d4d;
 				color: #d74d4d;
+				background-color: transparent;
 				&:hover {
 					border-color: darken($color: #d74d4d, $amount: 0.3);
 				}

@@ -36,28 +36,25 @@ $laptops-size: 1024px;
 	}
 
 	&__user-input {
+		background-color: transparent;
 		color: white;
 		text-align: center;
+		border: none;
 		border-bottom: 2px solid white;
 		padding: 0.125rem 0;
 		width: 80%;
 		max-width: 80%;
 		font-family: inherit;
+		height: 2rem;
+		font-size: 1rem;
 
 		&::placeholder {
-			color: white;
+			color: rgba($color: white, $alpha: 0.6);
+			font-size: 1rem;
 		}
 
-		label {
-			color: #8b8b8b;
-			font-family: inherit;
-			font-size: 1.25rem;
-			line-height: 1.5rem;
-		}
-
-		input {
-			font-family: inherit;
-			color: white;
+		&:focus {
+			outline: none;
 		}
 	}
 
@@ -74,20 +71,27 @@ $laptops-size: 1024px;
 	}
 
 	&__button {
-		border-radius: 1.5rem;
-		text-transform: none;
 		font-family: inherit;
 		font-size: 1rem;
+		border-radius: 1.5rem;
 		padding: 0.5rem 2rem;
+		color: white;
+
+		&:hover {
+			cursor: pointer;
+		}
 
 		&--game {
 			background-color: #4477ce;
+			&:hover {
+				background-color: darken(#4477ce, 5%);
+			}
 		}
 
 		&--dashboard {
 			background-color: #512b81;
 			&:hover {
-				background-color: #37185f;
+				background-color: darken(#512b81, 5%);
 			}
 		}
 	}

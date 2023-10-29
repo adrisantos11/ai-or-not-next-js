@@ -41,7 +41,7 @@ const GamePage = () => {
 			url: "api/image-1",
 			url_amount: 137,
 			path: "/images/ai",
-			path_amout: 100,
+			path_amount: 100,
 			path_extension: "jpeg",
 		},
 		{
@@ -49,7 +49,7 @@ const GamePage = () => {
 			url: "api/image-2",
 			url_amount: 20,
 			path: "/images/real",
-			path_amout: 100,
+			path_amount: 100,
 			path_extension: "jpg",
 		},
 	]);
@@ -67,7 +67,7 @@ const GamePage = () => {
 			  }?image-id=${generateRandom(0, typeObject.url_amount + 1)}`
 			: ` ${typeObject.path}/${generateRandom(
 					0,
-					typeObject.url_amount + 1
+					typeObject.path_amount + 1
 			  )}.${typeObject.path_extension}`;
 		if (image) {
 			image.style.backgroundImage = `url('${url}')`;
@@ -158,21 +158,19 @@ const GamePage = () => {
 					</div>
 					<div className="p-next-round__button-container">
 						{keepPlaying && (
-							<Button
+							<button
 								className="p-next-round__button p-next-round__button--next"
-								variant="contained"
 								onClick={() => {
 									setSelected(() => StatesEnum["initial"]);
 									getNewImages();
 								}}
 							>
 								Next
-							</Button>
+							</button>
 						)}
 						<Link href="/">
-							<Button
+							<button
 								className="p-next-round__button p-next-round__button--exit"
-								variant="outlined"
 								onClick={() => {
 									const usersObj: any = JSON.parse(
 										String(
@@ -192,7 +190,7 @@ const GamePage = () => {
 								}}
 							>
 								Exit
-							</Button>
+							</button>
 						</Link>
 					</div>
 				</div>
