@@ -20,6 +20,9 @@ export default function Home() {
 		>
 			<h1 className="p-home__title">Is this AI or not</h1>
 			<div className="p-home__subtitle">
+				<h3>
+					<b style={{ fontStyle: "italic" }}>ALPHA version</b>
+				</h3>
 				<h3>Show your capacity of AI detecting</h3>
 				<h3>
 					Learn the main differences between real-world images and AI
