@@ -219,6 +219,10 @@ $laptops-size: 1024px;
 			height: 50%;
 		}
 
+		&__select-img {
+			display: none;
+		}
+
 		&__select-img-txt {
 			font-size: 2rem;
 			line-height: 2.25rem;
