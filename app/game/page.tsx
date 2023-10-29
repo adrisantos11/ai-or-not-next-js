@@ -49,7 +49,7 @@ const GamePage = () => {
 			url_amount: 20,
 			path: "/images/real",
 			path_amount: 100,
-			path_extension: "jpg",
+			path_extension: "jpeg",
 		},
 	]);
 
