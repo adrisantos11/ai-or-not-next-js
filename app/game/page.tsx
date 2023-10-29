@@ -7,7 +7,6 @@ import * as React from "react";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@mui/material";
 
 const SIDES: string[] = ["left", "right"];
 
