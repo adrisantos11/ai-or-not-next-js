@@ -40,7 +40,7 @@ const GamePage = () => {
 			url: "api/image-1",
 			url_amount: 137,
 			path: "/images/ai",
-			path_amount: 100,
+			path_amount: 137,
 			path_extension: "jpeg",
 		},
 		{
@@ -48,7 +48,7 @@ const GamePage = () => {
 			url: "api/image-2",
 			url_amount: 20,
 			path: "/images/real",
-			path_amount: 100,
+			path_amount: 200,
 			path_extension: "jpeg",
 		},
 	]);
