@@ -86,18 +86,21 @@ export default function Home() {
 			<div className="p-home__page p-home__page--2">
 				<div className="p-home__description">
 					<h2>Description</h2>
+					<h3>{`Test your ability to spot AI-generated art!`}</h3>
 					<h3>
-						{`Test your ability to spot AI-generated art! 'AI or Not'
+						{`'AI or Not'
 					challenges you to distinguish between two images – one
 					created by AI, the other by a human. AI or Not' will test
 					your ability to differentiate between human and AI-generated
-					visuals. Can you tell the difference?`}
+					visuals`}
 					</h3>
+					<h3>{`Can you tell the difference?`}</h3>
 				</div>
 				<div className="p-home__how-to-play">
 					<h2>How to play?</h2>
+					<h3>{`You will be presented with two pictures simultaneously`}</h3>
 					<h3>
-						{`You will be presented with two pictures simultaneously. Choose the one you believe was created by AI to earn a point. Aim to accumulate the highest score possible!`}
+						{`Choose the one you believe was created by AI to earn a point and aim to accumulate the highest score possible!`}
 					</h3>
 				</div>
 			</div>
