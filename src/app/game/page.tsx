@@ -1,20 +1,20 @@
 "use client";
+import * as React from "react";
 import "./page.scss";
+
 import successImg from "@/public/success.svg";
 import wrongImg from "@/public/wrong.svg";
 import backgIcon from "@/public/back-icon.svg";
-import * as React from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 
 const SIDES: string[] = ["left", "right"];
 
 /**
- *
- * @param min
- * @param max
- * @returns
+ * Function to get a random number inside a range
+ * @param min Min range number
+ * @param max Max range number
+ * @returns Random number generated
  */
 const generateRandom = (min = 0, max = 100) => {
 	const difference = max - min;
@@ -29,12 +29,21 @@ enum StatesEnum {
 	"score-page" = 3,
 }
 
+interface IImageType {
+	type: string;
+	url: string;
+	url_amount: number;
+	path: string;
+	path_amount: number;
+	path_extension: "jpeg" | "png" | "jpg";
+}
+
 const GamePage = () => {
 	const [selected, setSelected] = React.useState<StatesEnum>(
 		StatesEnum["initial"]
 	);
 
-	const [imageTypeList, setImageTypeList] = React.useState<any[]>([
+	const [imageTypeList, setImageTypeList] = React.useState<IImageType[]>([
 		{
 			type: "ai",
 			url: "api/image-1",
@@ -58,7 +67,7 @@ const GamePage = () => {
 	const [personalRecord, setPersonalRecord] = React.useState<number>(0);
 	const [globalRecord, setGlobalRecord] = React.useState<number>(0);
 
-	const getImage = (side: string, typeObject: any, cloud: boolean) => {
+	const getImage = (side: string, typeObject: IImageType, cloud: boolean) => {
 		const image = document.getElementById(`${side}-game-image`);
 		const url: string = cloud
 			? `${process.env.NEXT_PUBLIC_API}/${
@@ -115,7 +124,7 @@ const GamePage = () => {
 	}, [selected]);
 
 	React.useEffect(() => {
-		imageTypeList.map((obj: any, index: number) =>
+		imageTypeList.map((obj: IImageType, index: number) =>
 			getImage(SIDES[index], obj, false)
 		);
 	}, [imageTypeList]);
