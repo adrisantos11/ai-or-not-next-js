@@ -156,17 +156,6 @@ const GamePage = () => {
 						</span>
 					</div>
 					<div className="p-next-round__button-container">
-						{keepPlaying && (
-							<button
-								className="p-next-round__button p-next-round__button--next"
-								onClick={() => {
-									setSelected(() => StatesEnum["initial"]);
-									getNewImages();
-								}}
-							>
-								Next
-							</button>
-						)}
 						<Link href="/">
 							<button
 								className="p-next-round__button p-next-round__button--exit"
@@ -191,6 +180,17 @@ const GamePage = () => {
 								Exit
 							</button>
 						</Link>
+						{keepPlaying && (
+							<button
+								className="p-next-round__button p-next-round__button--next"
+								onClick={() => {
+									setSelected(() => StatesEnum["initial"]);
+									getNewImages();
+								}}
+							>
+								Next
+							</button>
+						)}
 					</div>
 				</div>
 			) : (
