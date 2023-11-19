@@ -2,9 +2,9 @@
 import * as React from "react";
 import "../styles/game.scss";
 
-import successImg from "@/src/assets/success.svg";
-import wrongImg from "@/src/assets/wrong.svg";
-import backgIcon from "@/src/assets/back-icon.svg";
+import successImg from "@/public/success.svg";
+import wrongImg from "@/public/wrong.svg";
+import backgIcon from "@/public/back-icon.svg";
 import Image from "next/image";
 import Link from "next/link";
 
