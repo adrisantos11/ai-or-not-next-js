@@ -1,3 +1,5 @@
+import "../styles/dashboard.scss";
+
 const DashboardPage = () => {
 	return (
 		<main>

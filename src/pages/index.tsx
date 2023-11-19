@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import bckgImg from "@/public/landscape20.jpeg";
-import "./page.scss";
+import "../styles/index.scss";
 
 export default function Home() {
 	const [userName, setUserName] = React.useState<string>("");
