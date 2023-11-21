@@ -67,6 +67,20 @@ const GamePage = () => {
 	const [personalRecord, setPersonalRecord] = React.useState<number>(0);
 	const [globalRecord, setGlobalRecord] = React.useState<number>(0);
 
+	const resetScore = () => setScore(() => 0);
+
+	const updateLocalStorage = () => {
+		const usersObj: any = JSON.parse(
+			String(localStorage.getItem("userRecords"))
+		);
+		const currentUser: any = localStorage.getItem("currentUser");
+		if (usersObj[currentUser] < score) {
+			usersObj[currentUser] = score;
+			localStorage.setItem("userRecords", JSON.stringify(usersObj));
+		}
+		localStorage.setItem("currentUser", "");
+	};
+
 	const getImage = (side: string, typeObject: IImageType, cloud: boolean) => {
 		const image = document.getElementById(`${side}-game-image`);
 		const url: string = cloud
@@ -86,8 +100,10 @@ const GamePage = () => {
 						: StatesEnum[`right-selection`]
 				);
 
-				if (typeObject.type === "ai") setScore((score) => score + 1);
-				else setKeepPlaying(false);
+				if (typeObject.type === "ai") {
+					setScore((score) => score + 1);
+					setKeepPlaying(true);
+				} else setKeepPlaying(false);
 			};
 		}
 	};
@@ -168,23 +184,7 @@ const GamePage = () => {
 						<Link href="/">
 							<button
 								className="p-next-round__button p-next-round__button--exit"
-								onClick={() => {
-									const usersObj: any = JSON.parse(
-										String(
-											localStorage.getItem("userRecords")
-										)
-									);
-									const currentUser: any =
-										localStorage.getItem("currentUser");
-									if (usersObj[currentUser] < score) {
-										usersObj[currentUser] = score;
-										localStorage.setItem(
-											"userRecords",
-											JSON.stringify(usersObj)
-										);
-									}
-									localStorage.setItem("currentUser", "");
-								}}
+								onClick={updateLocalStorage}
 							>
 								Exit
 							</button>
@@ -198,6 +198,19 @@ const GamePage = () => {
 								}}
 							>
 								Next
+							</button>
+						)}
+						{!keepPlaying && (
+							<button
+								className="p-next-round__button p-next-round__button--next"
+								onClick={() => {
+									updateLocalStorage();
+									setSelected(() => StatesEnum["initial"]);
+									resetScore();
+									getNewImages();
+								}}
+							>
+								Try again
 							</button>
 						)}
 					</div>

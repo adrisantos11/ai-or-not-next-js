@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import bckgImg from "@/public/landscape20.jpeg";
 import "../styles/index.scss";
-import Test from "../app/components/Test";
 
 export default function Home() {
 	const [userName, setUserName] = React.useState<string>("");
