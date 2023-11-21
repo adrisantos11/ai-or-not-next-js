@@ -88,32 +88,6 @@ $laptops-size: 1024px;
 		gap: 3rem;
 	}
 
-	&__button {
-		font-family: inherit;
-		font-size: 1rem;
-		border-radius: 1.5rem;
-		padding: 0.5rem 2rem;
-		color: white;
-
-		&:hover {
-			cursor: pointer;
-		}
-
-		&--game {
-			background-color: #4477ce;
-			&:hover {
-				background-color: darken(#4477ce, 5%);
-			}
-		}
-
-		&--dashboard {
-			background-color: #512b81;
-			&:hover {
-				background-color: darken(#512b81, 5%);
-			}
-		}
-	}
-
 	&__description,
 	&__how-to-play {
 		display: flex;

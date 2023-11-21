@@ -7,6 +7,7 @@ import wrongImg from "@/public/wrong.svg";
 import backgIcon from "@/public/back-icon.svg";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "../app/components/Button";
 
 const SIDES: string[] = ["left", "right"];
 
@@ -166,7 +167,7 @@ const GamePage = () => {
 					<div className="p-next-round__score-container">
 						<span className="p-next-round__title">SCORE</span>
 						<span className="p-next-round__subtitle">
-							User: {localStorage.getItem("currentUser")}
+							{localStorage.getItem("currentUser")}
 						</span>
 						<span className="p-next-round__score">
 							<b>{score}</b>
@@ -182,36 +183,37 @@ const GamePage = () => {
 					</div>
 					<div className="p-next-round__button-container">
 						<Link href="/">
-							<button
-								className="p-next-round__button p-next-round__button--exit"
+							<Button
+								id="exit-button"
+								text="Exit"
+								type="error"
+								inline
 								onClick={updateLocalStorage}
-							>
-								Exit
-							</button>
+							></Button>
 						</Link>
 						{keepPlaying && (
-							<button
-								className="p-next-round__button p-next-round__button--next"
+							<Button
+								id="next-round-button"
+								text="Next"
+								type="primary"
 								onClick={() => {
 									setSelected(() => StatesEnum["initial"]);
 									getNewImages();
 								}}
-							>
-								Next
-							</button>
+							></Button>
 						)}
 						{!keepPlaying && (
-							<button
-								className="p-next-round__button p-next-round__button--next"
+							<Button
+								id="try-again-button"
+								text="Try again"
+								type="primary"
 								onClick={() => {
 									updateLocalStorage();
 									setSelected(() => StatesEnum["initial"]);
 									resetScore();
 									getNewImages();
 								}}
-							>
-								Try again
-							</button>
+							></Button>
 						)}
 					</div>
 				</div>

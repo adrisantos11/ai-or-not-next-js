@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import bckgImg from "@/public/landscape20.jpeg";
 import "../styles/index.scss";
+import Button from "../app/components/Button";
 
 export default function Home() {
 	const [userName, setUserName] = React.useState<string>("");
@@ -11,6 +12,7 @@ export default function Home() {
 	React.useEffect(() => {
 		localStorage.setItem("currentUser", "");
 	}, []);
+
 	return (
 		<main
 			className="p-home"
@@ -42,8 +44,10 @@ export default function Home() {
 				<div className="p-home__buttons-container">
 					<div className="p-home__game-buttons">
 						<Link href="/game">
-							<button
-								className="p-home__button p-home__button--game"
+							<Button
+								id="game-button"
+								text="Start game"
+								type="primary"
 								onClick={() => {
 									const usersObj: any =
 										JSON.parse(
@@ -70,15 +74,15 @@ export default function Home() {
 										userName
 									);
 								}}
-							>
-								Start game
-							</button>
+							></Button>
 						</Link>
 
 						<Link href="/dashboard">
-							<button className="p-home__button p-home__button--dashboard">
-								Dashboard
-							</button>
+							<Button
+								id="dashboard-button"
+								text="Dashboard"
+								type="secondary"
+							></Button>
 						</Link>
 					</div>
 				</div>
