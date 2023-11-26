@@ -88,7 +88,7 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="p-home__page p-home__page--2">
-				<div className="p-home__description">
+				<div className="p-home__info-container">
 					<h2>Description</h2>
 					<h3>{`Test your ability to spot AI-generated art!`}</h3>
 					<h3>
@@ -100,13 +100,17 @@ export default function Home() {
 					</h3>
 					<h3>{`Can you tell the difference?`}</h3>
 				</div>
-				<div className="p-home__how-to-play">
+				<div className="p-home__info-container">
 					<h2>How to play?</h2>
 					<h3>{`You will be presented with two pictures simultaneously`}</h3>
 					<h3>
 						{`Choose the one you believe was created by AI to earn a point and aim to accumulate the highest score possible!`}
 					</h3>
 				</div>
+				<span className="p-home__copyright-text">
+					© 2023 - Adrián Santos Mena | Román Zamora Carreras |
+					Alejandro Parra
+				</span>
 			</div>
 		</main>
 	);
